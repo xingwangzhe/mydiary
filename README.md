@@ -2,7 +2,7 @@
 
 ## 项目简介
 
-MyDiary 是一款面向个人的日记软件，采用现代化的用户界面设计，提供日记记录、任务管理、习惯追踪等功能。界面设计灵感来自"The Digital Sanctuary"理念，营造出宁静、舒适的写作环境。
+MyDiary 是一款面向个人的日记软件，采用现代化的用户界面设计，提供日记记录、任务管理、账本管理等功能。界面设计灵感来自"The Digital Sanctuary"理念，营造出宁静、舒适的写作环境。
 
 ## 技术栈
 
@@ -10,17 +10,18 @@ MyDiary 是一款面向个人的日记软件，采用现代化的用户界面设
 - **语言**: TypeScript
 - **样式**: Tailwind CSS
 - **构建工具**: Vite
+- **桌面应用框架**: Electron
 - **字体**: Manrope (标题)、Inter (正文)、Material Symbols Icons (图标)
 
 ## 功能特性
 
 ### 核心功能
 
-- **日记管理**: 创建、编辑、查看日记条目
-- **任务管理**: 追踪日常任务和待办事项
-- **习惯追踪**: 记录和追踪每日习惯养成
-- **心情记录**: 记录每日心情变化
-- **数据统计**: 可视化展示写作频率和心情趋势
+- **日记管理**: 创建、编辑、删除日记条目，支持按日期和分类查看
+- **任务管理**: 追踪日常任务和待办事项，支持标记完成状态和设置优先级
+- **账本管理**: 记录收入和支出，查看财务统计和分类统计
+- **主题切换**: 支持深色/浅色模式切换
+- **响应式设计**: 适配不同屏幕尺寸
 
 ### 设计特点
 
@@ -39,10 +40,21 @@ mydiary/
 ├── tailwind.config.js  # Tailwind CSS配置
 ├── tsconfig.json       # TypeScript配置
 ├── vite.config.ts      # Vite配置
+├── electron/           # Electron相关文件
+│   ├── main.ts         # Electron主进程
+│   └── preload.ts      # Electron预加载脚本
 └── src/
-    ├── main.ts         # 入口文件
+    ├── main.ts         # 前端入口文件
     ├── style.css       # 全局样式
-    └── App.vue         # 主组件
+    ├── App.vue         # 主组件
+    ├── components/     # 组件目录
+    │   ├── JournalEditor.vue  # 日记编辑器
+    │   ├── TaskEditor.vue     # 任务编辑器
+    │   └── LedgerEditor.vue   # 账本编辑器
+    └── utils/          # 工具函数
+        ├── journalStorage.ts  # 日记存储
+        ├── taskStorage.ts     # 任务存储
+        └── ledgerStorage.ts   # 账本存储
 ```
 
 ## 开发指南
@@ -74,6 +86,20 @@ npm run build
 ```bash
 npm run preview
 ```
+
+### 启动 Electron 应用
+
+```bash
+npm run electron:preview
+```
+
+### 构建 Electron 应用
+
+```bash
+npm run electron:build
+```
+
+构建完成后，产物位于 `release` 目录。
 
 ## 设计规范
 
