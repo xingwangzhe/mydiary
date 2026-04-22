@@ -35,26 +35,32 @@ MyDiary 是一款面向个人的日记软件，采用现代化的用户界面设
 
 ```
 mydiary/
-├── index.html          # 入口HTML文件
-├── package.json        # 项目配置
-├── tailwind.config.js  # Tailwind CSS配置
-├── tsconfig.json       # TypeScript配置
-├── vite.config.ts      # Vite配置
-├── electron/           # Electron相关文件
-│   ├── main.ts         # Electron主进程
-│   └── preload.ts      # Electron预加载脚本
-└── src/
-    ├── main.ts         # 前端入口文件
-    ├── style.css       # 全局样式
-    ├── App.vue         # 主组件
-    ├── components/     # 组件目录
-    │   ├── JournalEditor.vue  # 日记编辑器
-    │   ├── TaskEditor.vue     # 任务编辑器
-    │   └── LedgerEditor.vue   # 账本编辑器
-    └── utils/          # 工具函数
-        ├── journalStorage.ts  # 日记存储
-        ├── taskStorage.ts     # 任务存储
-        └── ledgerStorage.ts   # 账本存储
+├── electron/                    # Electron 相关文件
+│   ├── main.ts                # Electron 主进程
+│   └── preload.ts             # Electron 预加载脚本
+├── src/                       # 源代码目录
+│   ├── components/            # Vue 组件
+│   │   ├── JournalEditor.vue  # 日记编辑器组件
+│   │   ├── LedgerEditor.vue   # 账本编辑器组件
+│   │   └── TaskEditor.vue    # 任务编辑器组件
+│   ├── utils/                # 工具函数
+│   │   ├── journalStorage.ts  # 日记数据存储
+│   │   ├── ledgerStorage.ts   # 账本数据存储
+│   │   └── taskStorage.ts    # 任务数据存储
+│   ├── App.vue               # 主应用组件
+│   ├── main.ts               # 应用入口文件
+│   └── style.css             # 全局样式文件
+├── .gitignore                # Git 忽略文件配置
+├── .npmrc                   # npm 配置文件
+├── index.html                # HTML 入口文件
+├── package.json             # 项目依赖配置
+├── package-lock.json         # 依赖版本锁定
+├── README.md                # 项目说明文档
+├── start.bat                # Windows 启动脚本
+├── tailwind.config.js       # Tailwind CSS 配置
+├── tsconfig.json            # TypeScript 配置
+├── tsconfig.node.json       # Node.js TypeScript 配置
+└── vite.config.ts           # Vite 构建配置
 ```
 
 ## 开发指南
