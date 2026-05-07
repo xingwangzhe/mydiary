@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
+@theme {
   --color-on-surface-variant: #424842;
   --color-on-primary-fixed: #07200f;
   --color-background: #fbf9f5;
@@ -53,7 +51,11 @@
 }
 
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
 }
 
 body {
@@ -62,7 +64,13 @@ body {
   color: var(--color-on-surface);
 }
 
-h1, h2, h3, h4, h5, h6, .font-headline {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-headline {
   font-family: 'Manrope', sans-serif;
 }
 

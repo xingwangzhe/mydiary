@@ -1,0 +1,11 @@
+{
+  "plugins": ["typescript", "import", "vue"],
+  "rules": {
+    "no-console": ["warn", { "allow": ["error", "warn"] }],
+    "no-debugger": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "eqeqeq": "error"
+  },
+  "ignorePatterns": ["dist/**", "release/**", "node_modules/**", "*.config.*"]
+}

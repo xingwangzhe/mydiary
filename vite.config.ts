@@ -1,45 +1,47 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import electron from 'vite-plugin-electron'
-import renderer from 'vite-plugin-electron-renderer'
-import path from 'path'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import electron from 'vite-plugin-electron';
+import renderer from 'vite-plugin-electron-renderer';
+import tailwindcss from '@tailwindcss/vite';
+import path from 'path';
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     vue(),
     electron([
       {
         entry: 'electron/main.ts',
         onstart(options) {
-          options.startup()
+          options.startup();
         },
         vite: {
           build: {
             outDir: 'dist/electron',
             rollupOptions: {
-              external: ['electron']
-            }
-          }
-        }
+              external: ['electron'],
+            },
+          },
+        },
       },
       {
         entry: 'electron/preload.ts',
         onstart(options) {
-          options.reload()
+          options.reload();
         },
         vite: {
           build: {
-            outDir: 'dist/electron'
-          }
-        }
-      }
+            outDir: 'dist/electron',
+          },
+        },
+      },
     ]),
-    renderer()
+    renderer(),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
-  base: './'
-})
+  base: './',
+});
