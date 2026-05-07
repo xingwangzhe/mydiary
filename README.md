@@ -6,34 +6,40 @@ MyDiary 是一款面向个人的日记软件，采用现代化的用户界面设
 
 ## 技术栈
 
-- **前端框架**: Vue 3
-- **语言**: TypeScript 6
-- **样式**: Tailwind CSS 4
-- **构建工具**: Vite 8
-- **桌面应用框架**: Electron 42
-- **打包工具**: electron-builder 26
-- **代码检查**: oxlint (OXC)
-- **代码格式化**: oxfmt (OXC)
-- **包管理器**: npm / bun
-- **字体**: Manrope (标题)、Inter (正文)、Material Symbols Icons (图标)
+| 类别       | 技术                                   |
+| ---------- | -------------------------------------- |
+| 前端框架   | Vue 3                                  |
+| 语言       | TypeScript                             |
+| 样式       | Tailwind CSS                           |
+| 构建工具   | Vite                                   |
+| 桌面框架   | Electron                               |
+| 打包工具   | electron-builder                       |
+| 代码检查   | oxlint (OXC)                           |
+| 代码格式化 | oxfmt (OXC)                            |
+| 包管理器   | npm / bun                              |
+| 字体       | Manrope, Inter, Material Symbols Icons |
 
 ## 功能特性
 
 ### 核心功能
 
-- **日记管理**: 创建、编辑、删除日记条目，支持按日期和分类查看
-- **任务管理**: 追踪日常任务和待办事项，支持标记完成状态和设置优先级
-- **账本管理**: 记录收入和支出，查看财务统计和分类统计
-- **主题切换**: 支持深色/浅色模式切换
-- **响应式设计**: 适配不同屏幕尺寸
+| 功能       | 说明                                           |
+| ---------- | ---------------------------------------------- |
+| 日记管理   | 创建、编辑、删除日记条目，支持按日期和分类查看 |
+| 任务管理   | 追踪待办事项，支持标记完成状态和设置优先级     |
+| 账本管理   | 记录收入和支出，查看财务统计和分类统计         |
+| 主题切换   | 支持深色/浅色模式切换                          |
+| 响应式设计 | 适配不同屏幕尺寸                               |
 
 ### 设计特点
 
-- 采用"Intentional Asymmetry"非对称设计
-- 色调以自然色系为主（鼠尾草绿、沙色、蓝色）
-- 无边框设计，通过背景色调差异区分内容区域
-- 毛玻璃效果导航栏
-- 柔和的阴影和圆角设计
+| 设计特点 | 说明                                 |
+| -------- | ------------------------------------ |
+| 布局     | "Intentional Asymmetry"非对称设计    |
+| 色调     | 自然色系（鼠尾草绿、沙色、蓝色）     |
+| 分隔     | 无边框，通过背景色调差异区分内容区域 |
+| 导航栏   | 毛玻璃效果 (backdrop-filter: blur)   |
+| 细节     | 柔和阴影与圆角                       |
 
 ## 项目结构
 
@@ -179,9 +185,11 @@ npm run electron:build    # 打包桌面应用 → release/
 
 推送 `v*` 标签自动触发构建：
 
-1. **build-windows** — 打包 `.exe` / `.portable`
-2. **build-linux** — 打包 `.AppImage` / `.deb`
-3. **release** — 创建 Draft Release，附带所有构建产物
+| Job           | 平台           | 产物                       |
+| ------------- | -------------- | -------------------------- |
+| build-windows | windows-latest | `.exe` / `.portable`       |
+| build-linux   | ubuntu-22.04   | `.AppImage` / `.deb`       |
+| release       | ubuntu-latest  | Draft Release (含全部产物) |
 
 手动触发：Actions → Build → Run workflow。
 
@@ -189,16 +197,16 @@ npm run electron:build    # 打包桌面应用 → release/
 
 ### 色彩系统
 
-| 用途          | 颜色    | Tailwind class          |
-| ------------- | ------- | ----------------------- |
-| 主色          | #4a654e | primary                 |
-| 主色容器      | #8ba88e | primary-container       |
-| 背景/表面色   | #fbf9f5 | background / surface    |
-| 次要色        | #6b5c4c | secondary               |
-| 次要容器      | #f4dfcb | secondary-container     |
-| 三级色        | #44617c | tertiary                |
-| 三级容器      | #87a4c2 | tertiary-container      |
-| 错误色        | #ba1a1a | error                   |
+| 用途        | 颜色    | Tailwind class       |
+| ----------- | ------- | -------------------- |
+| 主色        | #4a654e | primary              |
+| 主色容器    | #8ba88e | primary-container    |
+| 背景/表面色 | #fbf9f5 | background / surface |
+| 次要色      | #6b5c4c | secondary            |
+| 次要容器    | #f4dfcb | secondary-container  |
+| 三级色      | #44617c | tertiary             |
+| 三级容器    | #87a4c2 | tertiary-container   |
+| 错误色      | #ba1a1a | error                |
 
 完整色值见 `src/style.css` 的 `@theme` 块。
 
