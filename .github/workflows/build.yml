@@ -61,8 +61,6 @@ jobs:
   release:
     needs: [build-windows, build-linux]
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || startsWith(github.ref,
-      'refs/tags/v')
     permissions:
       contents: write
     steps:
