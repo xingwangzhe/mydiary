@@ -56,7 +56,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mydiary-linux
-          path: release/*.{AppImage,deb,snap}
+          path: |
+            release/*.AppImage
+            release/*.deb
 
   release:
     needs: [build-windows, build-linux]
