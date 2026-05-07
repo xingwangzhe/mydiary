@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "MyDiary - A personal diary application",
-  "author": "王兴家 <xingwangzhe@outlook.com>",
+  "author": "学生 <student@stu.neu.edu.cn>",
   "main": "dist/electron/main.js",
   "type": "module",
   "scripts": {
