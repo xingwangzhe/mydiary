@@ -38,8 +38,8 @@
       <!-- 侧边导航栏 -->
       <aside class="h-full w-72 fixed left-0 top-0 bg-[#f5f3ef] dark:bg-stone-900 border-none flex flex-col p-6 space-y-8 z-50 overflow-y-auto">
         <div class="mb-8">
-          <h1 class="text-2xl font-bold text-[#4a654e] dark:text-[#8ba88e] font-['Manrope']">Sanctuary</h1>
-          <p class="font-['Inter'] text-sm text-stone-500 dark:text-stone-400 mt-1">The Curated Life</p>
+          <h1 class="text-2xl font-bold text-[#4a654e] dark:text-[#8ba88e] font-['Manrope']">日记</h1>
+          <p class="font-['Inter'] text-sm text-stone-500 dark:text-stone-400 mt-1">记录生活</p>
         </div>
         <nav class="flex-1 space-y-1">
           <a 
@@ -52,7 +52,7 @@
             @click="handleNavClick('home')"
           >
             <span class="material-symbols-outlined">home</span>
-            <span class="font-['Inter']">Home</span>
+            <span class="font-['Inter']">首页</span>
           </a>
           <a 
             :class="[
@@ -64,7 +64,7 @@
             @click="handleNavClick('tasks')"
           >
             <span class="material-symbols-outlined">check_circle</span>
-            <span class="font-['Inter']">Tasks</span>
+            <span class="font-['Inter']">任务</span>
           </a>
           <a 
             :class="[
@@ -76,7 +76,7 @@
             @click="handleNavClick('journal')"
           >
             <span class="material-symbols-outlined">menu_book</span>
-            <span class="font-['Inter']">Journal</span>
+            <span class="font-['Inter']">日记</span>
           </a>
           <a 
             :class="[
@@ -88,13 +88,13 @@
             @click="handleNavClick('ledger')"
           >
             <span class="material-symbols-outlined">account_balance_wallet</span>
-            <span class="font-['Inter']">Ledger</span>
+            <span class="font-['Inter']">账本</span>
           </a>
         </nav>
         <div class="pt-6 border-t border-outline-variant/10">
           <button class="w-full bg-primary-gradient text-on-primary rounded-full py-4 px-6 flex items-center justify-center gap-2 font-['Inter'] font-semibold active:scale-95 transition-transform" @click="handleNewJournal">
             <span class="material-symbols-outlined">add</span>
-            New Entry
+            新建日记
           </button>
         </div>
         <div class="flex items-center gap-4 mt-auto">
@@ -104,7 +104,7 @@
             alt="User profile portrait"
           />
           <div>
-            <p class="text-sm font-bold font-['Manrope']">User profile portrait</p>
+            <p class="text-sm font-bold font-['Manrope']">用户头像</p>
           </div>
         </div>
       </aside>
@@ -116,7 +116,7 @@
           <div class="flex items-center gap-4 bg-surface-container-highest/50 px-6 py-3 rounded-full w-96 group focus-within:bg-white transition-all duration-300">
             <span class="material-symbols-outlined text-stone-400 group-focus-within:text-primary">search</span>
             <input 
-              class="bg-transparent border-none focus:ring-0 w-full text-sm font-['Inter']" 
+              class="bg-transparent border-none focus:ring-0 focus:outline-none w-full text-sm font-['Inter'] text-on-surface" 
               :placeholder="activeNav === 'tasks' ? '搜索任务...' : activeNav === 'ledger' ? '搜索记账...' : '搜索往日回忆...'"
               type="text"
             />
@@ -127,7 +127,7 @@
               <span class="material-symbols-outlined text-stone-400 cursor-pointer hover:opacity-70 transition-opacity active:opacity-50" @click="handleSettingsClick">settings</span>
             </div>
             <div class="flex flex-col items-end">
-              <span class="text-xs font-['Inter'] uppercase tracking-widest text-[#4a654e]">{{ activeNav === 'tasks' ? 'Task Management' : activeNav === 'ledger' ? 'Financial Overview' : 'Morning Reflection' }}</span>
+              <span class="text-xs font-['Inter'] uppercase tracking-widest text-[#4a654e]">{{ activeNav === 'tasks' ? '任务管理' : activeNav === 'ledger' ? '财务概览' : '晨间反思' }}</span>
               <span class="text-[10px] text-stone-400 font-['Inter']">{{ currentDate }}</span>
             </div>
           </div>

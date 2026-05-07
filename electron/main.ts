@@ -18,7 +18,7 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.mjs')
     },
     frame: true,
-    backgroundColor: '#fbf9f5'
+    backgroundColor: '#fbf9f5ff'
   })
 
   if (VITE_DEV_SERVER_URL) {

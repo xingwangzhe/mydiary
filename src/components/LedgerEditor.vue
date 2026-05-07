@@ -36,7 +36,7 @@
             v-model.number="ledger.amount" 
             type="number" 
             placeholder="输入金额..." 
-            class="w-full text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm transition-all font-['Inter']"
+            class="w-full text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm focus:outline-none transition-all font-['Inter']"
           />
         </div>
 
@@ -74,7 +74,7 @@
           <label class="block text-sm font-medium text-on-surface/80 mb-2 font-['Inter']">分类</label>
           <select 
             v-model="ledger.category" 
-            class="w-full text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm transition-all font-['Inter']"
+            class="w-full text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm focus:outline-none transition-all font-['Inter']"
           >
             <option v-for="category in categories" :key="category" :value="category">
               {{ category }}
@@ -88,7 +88,7 @@
           <input 
             v-model="ledger.date" 
             type="date" 
-            class="w-full text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm transition-all font-['Inter']"
+            class="w-full text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm focus:outline-none transition-all font-['Inter']"
           />
         </div>
 
@@ -98,7 +98,7 @@
           <textarea 
             v-model="ledger.description" 
             placeholder="输入描述..." 
-            class="w-full min-h-[120px] text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm transition-all resize-none font-['Inter']"
+            class="w-full min-h-[120px] text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm focus:outline-none transition-all resize-none font-['Inter']"
             rows="4"
           ></textarea>
         </div>

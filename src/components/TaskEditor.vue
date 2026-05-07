@@ -35,7 +35,7 @@
           <textarea 
             v-model="task.description" 
             placeholder="输入任务描述..." 
-            class="w-full min-h-[120px] text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm transition-all resize-none font-['Inter']"
+            class="w-full min-h-[120px] text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm focus:outline-none transition-all resize-none font-['Inter']"
             rows="4"
           ></textarea>
         </div>
@@ -46,7 +46,7 @@
           <input 
             v-model="task.dueDate" 
             type="date" 
-            class="w-full text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm transition-all font-['Inter']"
+            class="w-full text-body-md text-on-surface bg-surface-container-highest p-4 rounded-lg focus:bg-white focus:shadow-sm focus:outline-none transition-all font-['Inter']"
           />
         </div>
 
