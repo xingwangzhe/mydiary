@@ -170,29 +170,29 @@ npm run electron:preview
 
 ### 色彩系统
 
-| 用途 | 颜色 | 变量名 |
-|------|------|--------|
-| 主色 | #4a654e | primary |
-| 主色容器 | #8ba88e | primary-container |
-| 背景色 | #fbf9f5 | background/surface |
-| 表面容器-低 | #f5f3ef | surface-container-low |
-| 表面容器 | #efeeea | surface-container |
-| 表面容器-高 | #eae8e4 | surface-container-high |
+| 用途          | 颜色    | 变量名                    |
+| ------------- | ------- | ------------------------- |
+| 主色          | #4a654e | primary                   |
+| 主色容器      | #8ba88e | primary-container         |
+| 背景色        | #fbf9f5 | background/surface        |
+| 表面容器-低   | #f5f3ef | surface-container-low     |
+| 表面容器      | #efeeea | surface-container         |
+| 表面容器-高   | #eae8e4 | surface-container-high    |
 | 表面容器-最高 | #e4e2de | surface-container-highest |
-| 次要色 | #6b5c4c | secondary |
-| 次要容器 | #f4dfcb | secondary-container |
-| 三级色 | #44617c | tertiary |
-| 三级容器 | #87a4c2 | tertiary-container |
+| 次要色        | #6b5c4c | secondary                 |
+| 次要容器      | #f4dfcb | secondary-container       |
+| 三级色        | #44617c | tertiary                  |
+| 三级容器      | #87a4c2 | tertiary-container        |
 
 ### 圆角系统
 
-| 名称 | 大小 | 用途 |
-|------|------|------|
-| sm | 0.25rem | 内部嵌套元素 |
-| lg | 0.5rem | 标准输入框 |
-| xl | 0.75rem | 卡片 |
-| 2xl | 1rem | 大型卡片 |
-| full | 9999px | 按钮和标签 |
+| 名称 | 大小    | 用途         |
+| ---- | ------- | ------------ |
+| sm   | 0.25rem | 内部嵌套元素 |
+| lg   | 0.5rem  | 标准输入框   |
+| xl   | 0.75rem | 卡片         |
+| 2xl  | 1rem    | 大型卡片     |
+| full | 9999px  | 按钮和标签   |
 
 ## 许可证
 
