@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
+@theme {
   --color-on-surface-variant: #424842;
   --color-on-primary-fixed: #07200f;
   --color-background: #fbf9f5;
