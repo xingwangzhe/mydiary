@@ -2,6 +2,8 @@
   "name": "mydiary",
   "private": true,
   "version": "1.0.0",
+  "description": "MyDiary - A personal diary application",
+  "author": "王兴家 <xingwangzhe@outlook.com>",
   "main": "dist/electron/main.js",
   "type": "module",
   "scripts": {
