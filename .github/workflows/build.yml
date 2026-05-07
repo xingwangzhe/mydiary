@@ -70,7 +70,7 @@ jobs:
 
       - name: Get version from package.json
         id: version
-        run: echo "tag=v$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+        run: echo "tag=v$(node -p require('./package.json').version)" >> $GITHUB_OUTPUT
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
