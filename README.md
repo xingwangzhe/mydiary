@@ -191,7 +191,7 @@ npm run electron:build    # 打包桌面应用 → release/
 | build-linux   | ubuntu-22.04   | `.AppImage` / `.deb`       |
 | release       | ubuntu-latest  | Draft Release (含全部产物) |
 
-构建完成后可在仓库的 Releases 页面下载可执行文件。手动触发：Actions → Build → Run workflow。
+构建完成后可在 [Releases](../../releases) 页面下载可执行文件。手动触发：Actions → Build → Run workflow。
 
 ## 设计规范
 
