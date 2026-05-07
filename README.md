@@ -63,7 +63,60 @@ mydiary/
 └── vite.config.ts           # Vite 构建配置
 ```
 
+## 架构
+
+```mermaid
+graph TB
+    subgraph "前端 (Renderer Process)"
+        VUE[Vue 3 + TypeScript]
+        TW[Tailwind CSS]
+        CP[Components]
+        ST[Storage Utils]
+    end
+
+    subgraph "Electron"
+        MAIN[Main Process]
+        PRE[Preload Script]
+    end
+
+    subgraph "构建工具链"
+        VITE[Vite]
+        VPE[vite-plugin-electron]
+        VPRE[vite-plugin-electron-renderer]
+        EB[electron-builder]
+    end
+
+    subgraph "桌面产物"
+        WIN[Windows .exe/.portable]
+        LINUX[Linux .AppImage/.deb]
+    end
+
+    VUE --> TW
+    VUE --> CP
+    CP --> ST
+    ST -->|localStorage| D[(浏览器本地存储)]
+
+    VITE --> VPE
+    VPE --> MAIN
+    VPE --> PRE
+    MAIN --> VUE
+    PRE -.->|contextBridge| VUE
+
+    VITE --> EB
+    EB --> WIN
+    EB --> LINUX
+
+    VPRE --> VUE
+```
+
 ## 开发指南
+
+### 升级依赖
+
+```bash
+npm update --save
+bun update
+```
 
 ### 安装依赖
 
@@ -79,33 +132,39 @@ npm run dev
 
 启动开发服务器，访问 http://localhost:5173 查看应用。
 
-### 构建生产版本
+### 构建 Web 版本
 
 ```bash
 npm run build
 ```
 
-构建完成后，产物位于 `dist` 目录。
+产物位于 `dist/` 目录。
 
-### 预览生产版本
+### 预览 Web 版本
 
 ```bash
 npm run preview
 ```
 
-### 启动 Electron 应用
-
-```bash
-npm run electron:preview
-```
-
-### 构建 Electron 应用
+### 构建 Electron 桌面应用
 
 ```bash
 npm run electron:build
 ```
 
-构建完成后，产物位于 `release` 目录。
+产物位于 `release/` 目录。
+
+### 启动 Electron 应用（开发模式）
+
+```bash
+npm run electron:dev
+```
+
+### 预览 Electron 应用（生产模式）
+
+```bash
+npm run electron:preview
+```
 
 ## 设计规范
 
