@@ -6,17 +6,17 @@ MyDiary 是一款基于 Electron + Vue 3 的个人日记桌面应用，支持日
 
 ## 技术栈
 
-| 层 | 技术 | 版本 |
-|---|------|------|
-| 前端框架 | Vue 3 | `^3.5` |
-| 语言 | TypeScript | `^6.0` |
-| 样式 | Tailwind CSS | `^4.2` |
-| 构建工具 | Vite | `^8.0` |
-| 桌面框架 | Electron | `^42.0` |
+| 层       | 技术             | 版本    |
+| -------- | ---------------- | ------- |
+| 前端框架 | Vue 3            | `^3.5`  |
+| 语言     | TypeScript       | `^6.0`  |
+| 样式     | Tailwind CSS     | `^4.2`  |
+| 构建工具 | Vite             | `^8.0`  |
+| 桌面框架 | Electron         | `^42.0` |
 | 打包工具 | electron-builder | `^26.8` |
-| Lint | oxlint | `^1.63` |
-| 格式化 | oxfmt | `^0.48` |
-| 包管理器 | npm / bun | — |
+| Lint     | oxlint           | `^1.63` |
+| 格式化   | oxfmt            | `^0.48` |
+| 包管理器 | npm / bun        | —       |
 
 ## 常用命令
 
@@ -36,14 +36,14 @@ npm run fmt:check    # oxfmt 格式检查
 
 ## 关键配置文件
 
-| 文件 | 用途 |
-|------|------|
-| `vite.config.ts` | Vite 构建配置，含 @tailwindcss/vite、vite-plugin-electron |
-| `tsconfig.json` | TypeScript 配置 (moduleResolution: bundler, strict) |
-| `.oxlintrc.json` | oxlint 规则 (typescript/import/vue 插件) |
-| `.oxfmtrc.json` | oxfmt 格式配置 (printWidth 100, singleQuote, trailingComma all) |
-| `.github/workflows/build.yml` | CI 构建与发布流程 |
-| `.npmrc` | npm 镜像源配置 (npmmirror) |
+| 文件                          | 用途                                                            |
+| ----------------------------- | --------------------------------------------------------------- |
+| `vite.config.ts`              | Vite 构建配置，含 @tailwindcss/vite、vite-plugin-electron       |
+| `tsconfig.json`               | TypeScript 配置 (moduleResolution: bundler, strict)             |
+| `.oxlintrc.json`              | oxlint 规则 (typescript/import/vue 插件)                        |
+| `.oxfmtrc.json`               | oxfmt 格式配置 (printWidth 100, singleQuote, trailingComma all) |
+| `.github/workflows/build.yml` | CI 构建与发布流程                                               |
+| `.npmrc`                      | npm 镜像源配置 (npmmirror)                                      |
 
 ## Tailwind CSS v4 注意事项
 
