@@ -1,7 +1,7 @@
 {
   "name": "mydiary",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MyDiary - A personal diary application",
   "author": "学生 <student@stu.neu.edu.cn>",
   "main": "dist/electron/main.js",
