@@ -7,10 +7,14 @@ MyDiary 是一款面向个人的日记软件，采用现代化的用户界面设
 ## 技术栈
 
 - **前端框架**: Vue 3
-- **语言**: TypeScript
-- **样式**: Tailwind CSS
-- **构建工具**: Vite
-- **桌面应用框架**: Electron
+- **语言**: TypeScript 6
+- **样式**: Tailwind CSS 4
+- **构建工具**: Vite 8
+- **桌面应用框架**: Electron 42
+- **打包工具**: electron-builder 26
+- **代码检查**: oxlint (OXC)
+- **代码格式化**: oxfmt (OXC)
+- **包管理器**: npm / bun
 - **字体**: Manrope (标题)、Inter (正文)、Material Symbols Icons (图标)
 
 ## 功能特性
@@ -35,32 +39,33 @@ MyDiary 是一款面向个人的日记软件，采用现代化的用户界面设
 
 ```
 mydiary/
-├── electron/                    # Electron 相关文件
-│   ├── main.ts                # Electron 主进程
-│   └── preload.ts             # Electron 预加载脚本
-├── src/                       # 源代码目录
-│   ├── components/            # Vue 组件
-│   │   ├── JournalEditor.vue  # 日记编辑器组件
-│   │   ├── LedgerEditor.vue   # 账本编辑器组件
-│   │   └── TaskEditor.vue    # 任务编辑器组件
-│   ├── utils/                # 工具函数
-│   │   ├── journalStorage.ts  # 日记数据存储
-│   │   ├── ledgerStorage.ts   # 账本数据存储
-│   │   └── taskStorage.ts    # 任务数据存储
-│   ├── App.vue               # 主应用组件
-│   ├── main.ts               # 应用入口文件
-│   └── style.css             # 全局样式文件
-├── .gitignore                # Git 忽略文件配置
-├── .npmrc                   # npm 配置文件
-├── index.html                # HTML 入口文件
-├── package.json             # 项目依赖配置
-├── package-lock.json         # 依赖版本锁定
-├── README.md                # 项目说明文档
-├── start.bat                # Windows 启动脚本
-├── tailwind.config.js       # Tailwind CSS 配置
-├── tsconfig.json            # TypeScript 配置
-├── tsconfig.node.json       # Node.js TypeScript 配置
-└── vite.config.ts           # Vite 构建配置
+├── .github/workflows/           # CI/CD 工作流
+│   └── build.yml                # 构建与发布 (Windows + Linux)
+├── electron/                    # Electron 进程
+│   ├── main.ts                  # 主进程
+│   └── preload.ts               # 预加载脚本
+├── src/                         # 渲染进程
+│   ├── components/
+│   │   ├── JournalEditor.vue    # 日记编辑器
+│   │   ├── LedgerEditor.vue     # 账本编辑器
+│   │   └── TaskEditor.vue       # 任务编辑器
+│   ├── utils/
+│   │   ├── journalStorage.ts    # 日记 localStorage
+│   │   ├── ledgerStorage.ts     # 账本 localStorage
+│   │   └── taskStorage.ts       # 任务 localStorage
+│   ├── App.vue                  # 主应用组件
+│   ├── main.ts                  # Vue 入口
+│   ├── style.css                # Tailwind CSS + @theme
+│   └── vite-env.d.ts            # Vite 类型声明
+├── .npmrc                       # npm 镜像配置
+├── .oxfmtrc.json                # oxfmt 格式配置
+├── .oxlintrc.json               # oxlint 规则配置
+├── AGENTS.md                    # AI 参与指南
+├── index.html                   # HTML 入口
+├── package.json                 # 项目配置与依赖
+├── tsconfig.json                # TypeScript 配置
+├── tsconfig.node.json           # Node TypeScript 配置
+└── vite.config.ts               # Vite 构建配置
 ```
 
 ## 架构
@@ -69,7 +74,7 @@ mydiary/
 graph TB
     subgraph "前端 (Renderer Process)"
         VUE[Vue 3 + TypeScript]
-        TW[Tailwind CSS]
+        TW[Tailwind CSS 4]
         CP[Components]
         ST[Storage Utils]
     end
@@ -81,9 +86,14 @@ graph TB
 
     subgraph "构建工具链"
         VITE[Vite]
+        TWCSS["@tailwindcss/vite"]
         VPE[vite-plugin-electron]
-        VPRE[vite-plugin-electron-renderer]
         EB[electron-builder]
+    end
+
+    subgraph "代码质量"
+        OXL[oxlint]
+        OXF[oxfmt]
     end
 
     subgraph "桌面产物"
@@ -94,8 +104,9 @@ graph TB
     VUE --> TW
     VUE --> CP
     CP --> ST
-    ST -->|localStorage| D[(浏览器本地存储)]
+    ST -->|localStorage| D[(本地存储)]
 
+    VITE --> TWCSS --> TW
     VITE --> VPE
     VPE --> MAIN
     VPE --> PRE
@@ -106,10 +117,17 @@ graph TB
     EB --> WIN
     EB --> LINUX
 
-    VPRE --> VUE
+    OXL --> VUE
+    OXF --> VUE
 ```
 
 ## 开发指南
+
+### 安装依赖
+
+```bash
+npm install
+```
 
 ### 升级依赖
 
@@ -118,10 +136,13 @@ npm update --save
 bun update
 ```
 
-### 安装依赖
+### 代码检查与格式化
 
 ```bash
-npm install
+npm run lint         # oxlint 检查
+npm run lint:fix     # oxlint 自动修复
+npm run fmt          # oxfmt 格式化
+npm run fmt:check    # oxfmt 格式检查 (CI 用)
 ```
 
 ### 开发模式
@@ -130,7 +151,7 @@ npm install
 npm run dev
 ```
 
-启动开发服务器，访问 http://localhost:5173 查看应用。
+启动开发服务器，访问 http://localhost:5173 查看 Web 应用。
 
 ### 构建 Web 版本
 
@@ -146,43 +167,40 @@ npm run build
 npm run preview
 ```
 
-### 构建 Electron 桌面应用
+### Electron 桌面应用
 
 ```bash
-npm run electron:build
+npm run electron:dev      # Electron 开发模式
+npm run electron:preview  # 构建 + 启动 Electron 应用
+npm run electron:build    # 打包桌面应用 → release/
 ```
 
-产物位于 `release/` 目录。
+## CI/CD
 
-### 启动 Electron 应用（开发模式）
+推送 `v*` 标签自动触发构建：
 
-```bash
-npm run electron:dev
-```
+1. **build-windows** — 打包 `.exe` / `.portable`
+2. **build-linux** — 打包 `.AppImage` / `.deb`
+3. **release** — 创建 Draft Release，附带所有构建产物
 
-### 预览 Electron 应用（生产模式）
-
-```bash
-npm run electron:preview
-```
+手动触发：Actions → Build → Run workflow。
 
 ## 设计规范
 
 ### 色彩系统
 
-| 用途          | 颜色    | 变量名                    |
-| ------------- | ------- | ------------------------- |
-| 主色          | #4a654e | primary                   |
-| 主色容器      | #8ba88e | primary-container         |
-| 背景色        | #fbf9f5 | background/surface        |
-| 表面容器-低   | #f5f3ef | surface-container-low     |
-| 表面容器      | #efeeea | surface-container         |
-| 表面容器-高   | #eae8e4 | surface-container-high    |
-| 表面容器-最高 | #e4e2de | surface-container-highest |
-| 次要色        | #6b5c4c | secondary                 |
-| 次要容器      | #f4dfcb | secondary-container       |
-| 三级色        | #44617c | tertiary                  |
-| 三级容器      | #87a4c2 | tertiary-container        |
+| 用途          | 颜色    | Tailwind class          |
+| ------------- | ------- | ----------------------- |
+| 主色          | #4a654e | primary                 |
+| 主色容器      | #8ba88e | primary-container       |
+| 背景/表面色   | #fbf9f5 | background / surface    |
+| 次要色        | #6b5c4c | secondary               |
+| 次要容器      | #f4dfcb | secondary-container     |
+| 三级色        | #44617c | tertiary                |
+| 三级容器      | #87a4c2 | tertiary-container      |
+| 错误色        | #ba1a1a | error                   |
+
+完整色值见 `src/style.css` 的 `@theme` 块。
 
 ### 圆角系统
 
